@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD</title>
+    <link rel="shortcut icon" href="icon.png" />
+    <link rel="stylesheet" href="output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <style>
+    body {
+      background: #222;
+    }
+    input {
+      width: 30vh;
+      height: 30px;
+      justify-content: end;
+      background: #111;
+      border-radius: 4px;
+      padding: 10px;
+      margin: 4px;
+    }
+    input:focus {
+      background: #000;
+      transform: scale(1.01);
+      outline: none;
+    }
+    th,
+    td {
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <div
+      class="ml-auto mr-auto text-xl text-white font-bold text-center p-5 uppercase"
+    >
+      CRUD - Management System
+    </div>
+    <hr class="border-2 border-gray-500 w-20 mx-auto" />
+
+    <div class="inputs text-center items-center space-x-5 space-y-5 text-white">
+      <div></div>
+      <div class="title">
+        <input
+          onkeyup="gettotal()"
+          type="text"
+          id="title"
+          placeholder="Title"
+        />
+      </div>
+      <div class="price">
+        <input
+          onkeyup="gettotal()"
+          type="number"
+          id="price"
+          placeholder="Price"
+        />
+      </div>
+      <div class="taxes">
+        <input
+          onkeyup="gettotal()"
+          type="number"
+          id="taxes"
+          placeholder="Taxes"
+        />
+      </div>
+      <div class="discount">
+        <input
+          onkeyup="gettotal()"
+          type="number"
+          id="discount"
+          placeholder="Discount"
+        />
+      </div>
+      <small
+        class="bg-red-800 rounded-sm text-xl px-1 mt-5 before:content-['Total:']"
+        id="total"
+      ></small>
+
+      <div class="count">
+        <input type="number" id="count" placeholder="Count" />
+      </div>
+      <div class="category">
+        <input type="text" id="category" placeholder="Category" />
+      </div>
+      <div class="buttons">
+        <button
+          onclick="submitdata(), showdata()"
+          id="create"
+          class="rounded-md text-white text-center w-40 bg-gray-600 p-3 hover:bg-gray-500"
+        >
+          Create
+        </button>
+        <button
+          onclick="deleteall()"
+          id="deleteall"
+          class="rounded-md text-white text-center w-40 bg-red-800 p-3 hover:bg-red-700"
+        >
+          Delete All <span id="items"></span>
+        </button>
+        <hr class="border-2 border-gray-800 w-60 mx-auto m-5" />
+      </div>
+      <div class="searchblock">
+        <input
+          onkeyup="search(this.value)"
+          class="h-10"
+          type="text"
+          id="search"
+          placeholder="Search"
+        />
+      </div>
+    </div>
+
+    <div class="outputs text-center items-center m-5 text-white">
+      <table class="text-lg ml-auto mr-auto">
+        <tr>
+          <th>id</th>
+          <th>Title</th>
+          <th>Price</th>
+          <th>Taxes</th>
+          <th>Discount</th>
+          <th>Count</th>
+          <th>Category</th>
+          <th>Total</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <hr class="border-gray-400 w-80 mx-auto m-5" />
+
+    <div class="text-center justify-center p-5 text-gray-300 font-semibold">
+      created and designed by Alfa 2023&copy;
+      <a href="https://github.com/zeiadsalhin"
+        ><i class="fa-brands fa fa-xl fa-github-square"></i
+      ></a>
+    </div>
+    <script src="crud.js"></script>
+  </body>
+</html>
